@@ -30,6 +30,12 @@
                 Categories
             </a>
         </li>
+        <li style="display:inline-block">
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <button>Atsijungti</button>
+            </form>
+        </li>
     </ul>
 </nav>
 

@@ -3,6 +3,6 @@
 
 @section('content')
 
-    <div>Admin dashboard</div>
+    <div>Sveiki prisijunge.</div>
 
 @endsection

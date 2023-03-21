@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ConditionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\HospitalController;
 use App\Http\Controllers\Admin\OperationController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\StatusController;
@@ -22,6 +25,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => SetLocale::class], function() {
+    Route::get('/', function () {
+        return view('home');
+    });
+
+    Route::get('patient/login', \App\Http\Controllers\Login\PatientController::class)->name('patient.login');
+    Route::get('doctor/login', \App\Http\Controllers\Login\DoctorController::class)->name('doctor.login');
+
+//    Route::get('/patient/condition', function() {
+//        return view('patient.condition');
+//    });
+
+
     Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified']], function () {
         Route::get('/', DashboardController::class);
     Route::resources([
@@ -29,15 +44,11 @@ Route::group(['middleware' => SetLocale::class], function() {
         'statuses' => StatusController::class,
         'doctors' => DoctorController::class,
         'patients' => PatientController::class,
-        'categories' => \App\Http\Controllers\Admin\CategoryController::class,
-        'conditions' => \App\Http\Controllers\Admin\ConditionController::class,
-        'hospitals' => \App\Http\Controllers\Admin\HospitalController::class,
+        'categories' => CategoryController::class,
+        'conditions' => ConditionController::class,
+        'hospitals' => HospitalController::class,
     ]);
     });
-});
-
-Route::get('/', function () {
-    return view('home');
 });
 
 Route::get('/dashboard', function () {

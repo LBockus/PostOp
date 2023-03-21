@@ -55,7 +55,7 @@ class Patient extends Model
     {
         parent::__construct($attributes);
 
-        // Set default values
+        // Set default value
         $this->condition = $this->condition ?? 'Neužpildyta';
     }
 }

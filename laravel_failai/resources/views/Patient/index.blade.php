@@ -4,8 +4,12 @@
 
 @section('content')
     <h1>{{__('patients.list')}}</h1>
-    <a href="{{route('patients.create')}}" class="waves-effect waves-light btn">{{__('patients.add_new')}}</a>
-    <table>
+
+                {{--  Button to add new patients  --}}
+    <a href="{{route('patients.create')}}" class="waves-effect waves-light btn a.center">{{__('patients.add_new')}}</a>
+
+        {{--    All current patients table for admin purposes  --}}
+    <table class="table">
         <thead>
         <tr>
             <th>ID</th>

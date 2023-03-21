@@ -3,6 +3,9 @@
 @section('title', __('patients.edit'))
 
 @section('content')
+
+                {{--  Patient edit form with current values  --}}
+
     <form method="POST" action="{{ route('patients.update', ['patient' => $patient]) }}">
         @csrf
         @method('PUT')
@@ -16,9 +19,9 @@
         <input type="text" name="doctor_id" required value="{{$patient->doctor_id}}">
 
         <label for="operation">{{__('patients.operation')}}</label>
-        <textarea name="operation" required value="{{$patient->operation}}"></textarea>
+        <input type="text" name="operation" required value="{{$patient->operation}}">
 
-        <button type="submit">{{__('patients.add')}}</button>
+        <button type="submit">{{__('patients.update')}}</button>
     </form>
 
 @endsection

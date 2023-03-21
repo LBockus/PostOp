@@ -10,4 +10,6 @@ return [
     'add' => 'Add Patient',
     'login_code' => 'Patient login code',
     'edit' => 'Patient edit',
+    'previous_condition' => 'Your previous condition',
+    'update' => 'Update patient'
 ];

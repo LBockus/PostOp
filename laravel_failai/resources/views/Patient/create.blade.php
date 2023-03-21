@@ -3,6 +3,9 @@
 @section('title', __('patients.add'))
 
 @section('content')
+
+                            {{--  Patient creation form  --}}
+
     <form method="POST" action="{{ route('patients.store') }}">
         @csrf
 
@@ -16,7 +19,7 @@
         <input type="text" name="doctor_id" required>
 
         <label for="operation">{{__('patients.operation')}}</label>
-        <textarea name="operation" required></textarea>
+        <input type="text" name="operation" required>
 
         <button type="submit">{{__('patients.add')}}</button>
     </form>

@@ -3,7 +3,10 @@
 @section('title', __('patients.list'))
 
 @section('content')
-    <table>
+
+{{--  Single Patient table  --}}
+
+    <table class="table">
         <thead>
         <tr>
             <th>ID</th>
