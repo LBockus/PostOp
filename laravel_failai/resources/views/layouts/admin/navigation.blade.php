@@ -1,66 +1,33 @@
 <nav class="inline">
     <ul style="display:inline-block">
         <li style="display:inline-block">
-            <a href="/" class="nav-link"
-               x-nav-link
-               :href="'/'"
-            >
-                Home
+            <a href="{{ route('patients.index') }}" class="nav-link">
+                Patients
             </a>
         </li>
         <li style="display:inline-block">
-            <a href="statuses" class="nav-link"
-               x-nav-link
-               :href="'statuses'"
-            >
+            <a href="{{ route('statuses.index') }}" class="nav-link">
                 Statuses
             </a>
         </li>
         <li style="display:inline-block">
-            <a href="operations" class="nav-link"
-               x-nav-link
-               :href="'operations'"
-            >
+            <a href="{{ route('operations.index') }}" class="nav-link">
                 Operations
             </a>
         </li>
         <li style="display:inline-block">
-            <a href="conditions" class="nav-link"
-               x-nav-link
-               :href="'conditions'"
-            >
+            <a href="{{ route('conditions.index') }}" class="nav-link">
                 Conditions
             </a>
         </li>
         <li style="display:inline-block">
-            <a href="hospitals" class="nav-link"
-               x-nav-link
-               :href="'hospitals'"
-            >
+            <a href="{{ route('hospitals.index') }}" class="nav-link">
                 Hospitals
             </a>
         </li>
         <li style="display:inline-block">
-            <a href="categories" class="nav-link"
-               x-nav-link
-               :href="'categories'"
-            >
+            <a href="{{ route('categories.index') }}" class="nav-link">
                 Categories
-            </a>
-        </li>
-        <li style="display:inline-block">
-            <a href="users" class="nav-link"
-               x-nav-link
-               :href="'users'"
-            >
-                Users
-            </a>
-        </li>
-        <li style="display:inline-block">
-            <a href="{{ route('logout') }}" class="nav-link"
-               x-nav-link
-            >
-                Log out
             </a>
         </li>
     </ul>

@@ -30,11 +30,32 @@ class Patient extends Model
         'first_name',
         'last_name',
         'doctor_id',
-        'condition',
         'operation',
+        'login_code',
+    ];
+
+    protected $guarded = [
+        'condition',
     ];
 
     protected $hidden = [
         'remember_token'
     ];
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            // Generate unique code
+            $model->login_code = substr(md5($model->created_at . $model->first_name), 0, 8);
+        });
+    }
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        // Set default values
+        $this->condition = $this->condition ?? 'Neužpildyta';
+    }
 }

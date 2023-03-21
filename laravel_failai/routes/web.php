@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\OperationController;
+use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\SetLocale;
@@ -24,7 +26,12 @@ Route::group(['middleware' => SetLocale::class], function() {
         Route::get('/', DashboardController::class);
     Route::resources([
         'operations' => OperationController::class,
-        'statuses' => StatusController::class
+        'statuses' => StatusController::class,
+        'doctors' => DoctorController::class,
+        'patients' => PatientController::class,
+        'categories' => \App\Http\Controllers\Admin\CategoryController::class,
+        'conditions' => \App\Http\Controllers\Admin\ConditionController::class,
+        'hospitals' => \App\Http\Controllers\Admin\HospitalController::class,
     ]);
     });
 });
