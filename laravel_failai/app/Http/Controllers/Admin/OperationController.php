@@ -12,13 +12,13 @@ class OperationController extends Controller
     public function index()
     {
         $operations = Operation::all();
-        return view('operations.index', ['operations' => $operations]);
+        return view('operation.index', ['operations' => $operations]);
     }
 
     public function store(OperationRequest $request)
     {
         $operation = Operation::create($request->all());
-        return redirect()->route('operation.show', $operation);
+        return redirect()->route('operations.show', $operation);
     }
 
     public function create()

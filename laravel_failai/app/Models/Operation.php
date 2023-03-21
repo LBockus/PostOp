@@ -22,4 +22,10 @@ use Illuminate\Database\Eloquent\Model;
 class Operation extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'name',
+        'category',
+        'status'
+    ];
 }

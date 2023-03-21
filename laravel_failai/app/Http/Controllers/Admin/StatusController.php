@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StatusRequest;
 use App\Models\Status;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class StatusController extends Controller
     public function index()
     {
         $statuses = Status::all();
-        return view('statuses.index');
+        return view('status.index', ['statuses' => $statuses]);
     }
 
     public function store(StatusRequest $request)

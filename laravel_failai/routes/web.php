@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OperationController;
+use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\SetLocale;
+use App\Models\Operation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::group(['middleware' => SetLocale::class], function() {
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified']], function () {
+        Route::get('/', DashboardController::class);
+    Route::resources([
+        'operations' => OperationController::class,
+        'statuses' => StatusController::class
+    ]);
+    });
+});
 
 Route::get('/', function () {
     return view('home');
